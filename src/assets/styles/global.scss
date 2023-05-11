@@ -69,7 +69,7 @@ input {
 button {
     width: 100%;
     height: 48px;
-    background-color: $primaryColor4;
+    background-color: $primaryColor;
     border: none;
     outline: none;
     border-radius: 8px;
@@ -96,6 +96,7 @@ button {
                 background-color: $greyColor;
             }
         }
+    
     }
 }
 
@@ -107,11 +108,12 @@ button {
     align-items: center;
     justify-content: center;
     border: 3px solid $primaryColor;
+   
 
     img {
         border-radius: 50%;
-        width: 120px;
-        height: 118px;
+        width: 110px;
+        height: 110px;
         object-fit: contain;
     }
 
@@ -156,8 +158,8 @@ body {
 }
 
 @import './public.scss';
-// @import './avatar_input.scss';
-// @import './modal.scss';
+@import './avatar_input.scss';
+@import './modal.scss';
 // @import './header.scss';
 // @import './navigation.scss';
 // @import './footer.scss';
