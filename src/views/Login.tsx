@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 
 import logo from '../assets/images/logo.svg';
 import loginIcon from '../assets/images/mail.svg';
@@ -9,6 +9,7 @@ import passwordIcon from '../assets/images/key.svg';
 import { PublicInput } from '../components/general/PublicInput';
 
 import { LoginServices } from '../services/LoginServices';
+import { AuthorizeContext } from '../App';
 
 const loginServices = new LoginServices();
 
@@ -18,7 +19,12 @@ export const Login = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const [token, setToken] = useState('')
+  const [searchParams] = useSearchParams();
+  const success = searchParams.get('success')
+
+  const { setToken } = useContext(AuthorizeContext)
+
+  // const [token, setToken] = useState('')
 
   const doLogin = async () => {
     try {
@@ -47,7 +53,7 @@ export const Login = () => {
       <img className='logo' src={logo} alt="Logo devameet" />
       <form>
         {error && <p className='error'>{error}</p>}
-        {/* {success && <p className='success'>Cadastro efetuado com sucesso, faça seu login.</p>} */}
+        {success && <p className='success'>Cadastro efetuado com sucesso, faça seu login.</p>}
 
         <PublicInput icon={loginIcon} alt="Email" name="Email"
           type="text" modelValue={login} setValue={setLogin} />
@@ -64,7 +70,7 @@ export const Login = () => {
           {/* <a href='/register'>Faça seu cadastro agora</a> */}
           <Link to='/register'>Faça seu cadastro agora!</Link>
         </div>
-     </form>
+      </form>
 
     </div>
   )

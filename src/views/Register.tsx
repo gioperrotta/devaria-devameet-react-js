@@ -19,7 +19,8 @@ export const Register = () => {
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
-    const [image, setImage] = useState('');
+    
+    const [image, setImage] = useState('');    
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

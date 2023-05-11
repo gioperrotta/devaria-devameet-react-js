@@ -1,17 +1,29 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Login } from '../views/Login';
-// import { Home } from "../views/Home";
-// import { Profile } from "../views/Profile";
 import { Register } from '../views/Register';
+
+import { Home } from "../views/Home";
+
+// import { Profile } from "../views/Profile";
 // import { MeetAddView } from "../views/MeetAdd";
 // import { MeetEditView } from "../views/MeetEdit";
 // import { LinkView } from "../views/Link";
 // import { RoomView } from "../views/Room";
 
-export const router = createBrowserRouter([
-    { path: '*', id: 'login', element: <Login /> },
-    { path: '/register', id: 'register', element: <Register /> }
-])
+export const getRouter = (token: string) => {
+    if(!token){
+        return createBrowserRouter([
+            { path: '*', id: 'login', element: <Login /> },
+            { path: '/register', id: 'register', element: <Register /> }
+        ])
+    }else {
+        return createBrowserRouter([
+            { path: '*', id: 'home', element: <Home /> },
+            // { path: '/register', id: 'register', element: <Register /> }
+        ])
+    }
+}
+
 
 // export const getRouter = (token: string) => {
 //     if(!token){
