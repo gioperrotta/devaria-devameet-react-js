@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createContext, useState } from "react";
 import { RouterProvider } from "react-router-dom"
 import { getRouter } from "./router"

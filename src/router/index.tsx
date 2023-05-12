@@ -3,6 +3,7 @@ import { Login } from '../views/Login';
 import { Register } from '../views/Register';
 
 import { Home } from "../views/Home";
+import { Profile } from "../views/Profile";
 
 // import { Profile } from "../views/Profile";
 // import { MeetAddView } from "../views/MeetAdd";
@@ -19,6 +20,7 @@ export const getRouter = (token: string) => {
     }else {
         return createBrowserRouter([
             { path: '*', id: 'home', element: <Home /> },
+            { path: '/user', id: 'user', element: <Profile /> },
             // { path: '/register', id: 'register', element: <Register /> }
         ])
     }

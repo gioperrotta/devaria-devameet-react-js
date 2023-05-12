@@ -24,9 +24,7 @@ export const Login = () => {
 
   const { setToken } = useContext(AuthorizeContext)
 
-  // const [token, setToken] = useState('')
-
-  const doLogin = async () => {
+ const doLogin = async () => {
     try {
       setError('');
       if (!login || login.trim().length < 5
