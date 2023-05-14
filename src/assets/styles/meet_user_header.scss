@@ -34,9 +34,7 @@
 
         input{
             padding: 0;
-
             min-width: 250px;
-
             &:focus{
                 border-bottom: 0.5px solid $primaryColor;
             }

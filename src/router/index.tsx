@@ -4,6 +4,8 @@ import { Register } from '../views/Register';
 
 import { Home } from "../views/Home";
 import { Profile } from "../views/Profile";
+import { MeetAddView } from "../views/MeetAddView";
+
 
 // import { Profile } from "../views/Profile";
 // import { MeetAddView } from "../views/MeetAdd";
@@ -18,11 +20,17 @@ export const getRouter = (token: string) => {
             { path: '/register', id: 'register', element: <Register /> }
         ])
     }else {
-        return createBrowserRouter([
+        const router = ([
             { path: '*', id: 'home', element: <Home /> },
             { path: '/user', id: 'user', element: <Profile /> },
             // { path: '/register', id: 'register', element: <Register /> }
         ])
+        const mobile = window.innerWidth <= 992;
+        if (!mobile) {
+            router.push({ path: '/add', id: 'add', element: <MeetAddView/> })
+
+        }
+        return createBrowserRouter(router)
     }
 }
 
