@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import thrashIcon from '../../assets/images/trash_object.svg';
 import rightIcon from '../../assets/images/rotate_right.svg';
 import leftIcon from '../../assets/images/rotate_left.svg';
@@ -8,16 +9,17 @@ type MeetObjectsRoomType ={
     selected?: any,
     setSelected?(s:any):void,
     removeObject?(o:any):void,
-    rotateObject?(o:any, to: string):void,
+    rotateObject?(o:any, to: string):void, 
     moveSelected?(event:any, selected: any):void,
 }
+
 
 
 export const MeetObjectsRoom : React.FC<MeetObjectsRoomType> = ({objects, selected, setSelected, removeObject, rotateObject, moveSelected}) => {
 
     useEffect(() => {
         const doMove = (event : any) => {
-            moveSelected!!(event, selected);
+            moveSelected!(event, selected);
         }
 
         document.removeEventListener('keyup', doMove);
@@ -142,7 +144,7 @@ export const MeetObjectsRoom : React.FC<MeetObjectsRoomType> = ({objects, select
                     {
                         objects?.map((object: any) => 
                             <img key={object._id} 
-                                onClick={() => selected?.name === object.name ? setSelected!!(null) : setSelected!!(object)}
+                                onClick={() => selected?.name === object.name ? setSelected!(null) : setSelected!(object)}
                                 src={getImageFromObject(object)}
                                 className={getClassFromObject(object)}
                                 style={{zIndex: object.zindex}}
@@ -151,13 +153,13 @@ export const MeetObjectsRoom : React.FC<MeetObjectsRoomType> = ({objects, select
                 </div>
                 <div className="actions">
                     <div className={selected?._id ? 'active' : ''}>
-                        <img src={thrashIcon} onClick={() => selected?._id ? removeObject!!(selected) : null }/>
+                        <img src={thrashIcon} onClick={() => selected?._id ? removeObject!(selected) : null }/>
                     </div>
                     <div className={selected?._id  && (selected?.type === 'chair' || selected?.type === 'couch') ? 'active' : ''}>
-                        <img src={rightIcon} onClick={() => selected?._id ? rotateObject!!(selected, 'right') : null }/>
+                        <img src={rightIcon} onClick={() => selected?._id ? rotateObject!(selected, 'right') : null }/>
                     </div>
                     <div className={selected?._id  && (selected?.type === 'chair' || selected?.type === 'couch') ? 'active' : ''}>
-                        <img src={leftIcon} onClick={() => selected?._id ? rotateObject!!(selected, 'left') : null }/>
+                        <img src={leftIcon} onClick={() => selected?._id ? rotateObject!(selected, 'left') : null }/>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import emptyIcon from '../../assets/images/empty_list.svg';
 import { MeetServices } from "../../services/MeetServices";
@@ -12,9 +13,6 @@ type MeetListProps = {
 }
 
 export const MeetList: React.FC<MeetListProps> = ({ setObjects, setLink }) => {
-// export const MeetList = () => {
-
-
     const [meets, setMeets] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [selected, setSelected] = useState<string | null>(null);
@@ -86,7 +84,6 @@ export const MeetList: React.FC<MeetListProps> = ({ setObjects, setLink }) => {
                         meet={meet}
                         selectToRemove={selectToRemove}
                         selectMeet={selectMeetWithObjects}
-                        selectMeet={() =>{}}
                         selected={selected || ''} />)
                     :
                     <div className="empty">

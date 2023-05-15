@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MeetServices } from "../../services/MeetServices";
@@ -36,6 +37,7 @@ export const MeetAdd = () => {
             }
         }
     }
+    
 
     return (
         <div className="container-principal">

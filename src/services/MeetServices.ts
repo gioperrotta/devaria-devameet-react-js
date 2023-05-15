@@ -9,11 +9,13 @@ export class MeetServices extends HttpApiServices {
     }
 
     async getMeetById(id: string){
+        console.log('ESTOU AQUI  getMeetById =>',this.baseUrl+'/'+id)
         return await this.get(this.baseUrl+'/'+id);
     }
 
     async getMeetObjectsById(id: string){
-        return await this.get(this.baseUrl+'/objects/'+id);
+        console.log('ESTOU AQUI getMeetObjectsById =>',this.baseUrl+'/object/'+id)
+        return await this.get(this.baseUrl+'/object/'+id);
     }
 
     async deleteMeet(id: string){
