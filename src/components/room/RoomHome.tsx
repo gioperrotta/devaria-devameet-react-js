@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import emptyIcon from '../../assets/images/empty_list.svg';
 import copyIcon from '../../assets/images/copy.svg';

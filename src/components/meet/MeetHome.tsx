@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { RoomObjects } from "../room/RoomObjects";
+
 import { MeetList } from "./MeetList";
 import { MeetUserHeader } from "./MeetUserHeader";
 import { useNavigate } from "react-router-dom";
+import { RoomObjects } from "../room/RoomObjects";
 
 
 export const MeetHome = () => {
@@ -12,17 +13,16 @@ export const MeetHome = () => {
     const [link, setLink] = useState('');
 
     const enterRoom = () => {
-        navigate('/room/'+link);
+        navigate('/room/' + link);
     }
 
-    return(
+    return (
         <div className="container-principal">
             <div className="container-meet">
-
-                 <MeetUserHeader />
-               <MeetList setObjects={setObjects} setLink={setLink}/>
+                <MeetUserHeader />
+                <MeetList setObjects={setObjects} setLink={setLink} />
             </div>
-            {/* {objects?.length > 0 && <RoomObjects objects={objects} enterRoom={enterRoom}/>} */}
+            {objects?.length > 0 && <RoomObjects objects={objects} enterRoom={enterRoom} />}
         </div>
     );
 }

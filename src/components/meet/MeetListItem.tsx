@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import roomIcon from '../../assets/images/room.svg';
 import copyIcon from '../../assets/images/copy.svg';
 import editIcon from '../../assets/images/edit.svg';

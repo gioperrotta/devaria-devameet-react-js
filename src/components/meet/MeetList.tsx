@@ -23,7 +23,6 @@ export const MeetList: React.FC<MeetListProps> = ({ setObjects, setLink }) => {
             if (result?.data) {
                 setMeets(result.data);
             }
-            console.log(result?.data)
         } catch (e) {
             console.log('Ocorreu erro ao listar reuniões:', e);
         }
