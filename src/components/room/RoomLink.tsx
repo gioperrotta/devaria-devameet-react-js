@@ -11,6 +11,7 @@ export const RoomLink = () => {
     const [link, setLink] = useState('');
     const [error, setError] = useState('');
 
+    
     const navigateToRoom = () =>{
         setError('');
         if(link && link.length >= 8){
