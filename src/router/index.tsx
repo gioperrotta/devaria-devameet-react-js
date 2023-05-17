@@ -7,6 +7,7 @@ import { Profile } from "../views/Profile";
 import { MeetAddView } from "../views/MeetAddView";
 import { MeetEditView } from "../views/MeetEditView";
 import { LinkView } from "../views/LinkView";
+import { RoomView } from "../views/Room";
 
 export const getRouter = (token: string) => {
     if(!token){
@@ -18,6 +19,7 @@ export const getRouter = (token: string) => {
         const router = ([
             { path: '*', id: 'home', element: <Home /> },
             { path: '/user', id: 'user', element: <Profile /> },
+            { path: '/room/:link', id: 'room', element: <RoomView /> },
         ])
         const mobile = window.innerWidth <= 992;
         if (!mobile) {
