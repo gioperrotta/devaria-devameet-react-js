@@ -20,6 +20,7 @@ export const RoomObjects : React.FC<RoomObjectsProps> = ({objects, enterRoom, co
     const getImageFromObject = (object: any, isAvatar: boolean) => {
         if (object && object._id) {
             const path = `../../assets/objects/${isAvatar ? 'avatar' : object?.type}/${isAvatar ? object.avatar : object.name}${object.orientation? "_"+ object.orientation : ''}.png`;
+            console.log('ESTOU AQUI getImageFromObject path => ', path)
             const imageUrl = new URL(path, import.meta.url);
 
             if(mobile){
@@ -31,7 +32,6 @@ export const RoomObjects : React.FC<RoomObjectsProps> = ({objects, enterRoom, co
                         setObjectsWithWidth(newObjects);
                     }
                 }
-
                 img.src = imageUrl.href;
             }
 
@@ -171,8 +171,8 @@ export const RoomObjects : React.FC<RoomObjectsProps> = ({objects, enterRoom, co
                                 />
                         </div>)
                     }
-                    { me?.user && me.muted && <img src={micOffIcon} className='audio' onClick={toggleMute}/>}
-                    { me?.user && !me.muted && <img src={micOnIcon} className='audio' onClick={toggleMute}/>}
+                    { me?.user && <img src={ me.muted ? micOffIcon : micOnIcon} className='audio' onClick={toggleMute}/>}
+                    {/* { me?.user && !me.muted && <img src={micOnIcon} className='audio' onClick={toggleMute}/>} */}
                     {(!connectedUsers || connectedUsers?.length === 0) && <div className="preview">
                         <img src={linkIcon} alt="Entrar na sala"/>
                         <button onClick={enterRoom}>Entrar na sala</button>
